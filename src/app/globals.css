@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #FAF9F6;
+  --surface: #FFFFFF;
+  --elevated: #F3F1ED;
+  --border: #E6E3DC;
+  --text-primary: #18181B;
+  --text-muted: #71717A;
+  --accent: #E05A47;
+  --selfie: #0D9488;
+}
+
+.dark {
+  --bg: #111110;
+  --surface: #1B1B19;
+  --elevated: #262623;
+  --border: #2E2E2A;
+  --text-primary: #F4F4F2;
+  --text-muted: #9E9E98;
+  --accent: #F06A57;
+  --selfie: #2DD4BF;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-border-subtle: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-selfie: var(--selfie);
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tactile scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
